@@ -29,14 +29,14 @@ let fragment = document.createDocumentFragment();
 // build the nav
 sections.forEach((section) => {
   let text = section.getAttribute("data-nav");
-  console.log(text);
+  // console.log(text);
   let navEl_li = document.createElement("li");
   let navEl_li_a = document.createElement("a");
   navEl_li_a.setAttribute("class", "menu__link");
   navEl_li_a.textContent = text;
   navEl_li.appendChild(navEl_li_a);
   fragment.appendChild(navEl_li);
-  console.log(fragment);
+  // console.log(fragment);
 
   // Scroll to section on link click
   navEl_li_a.addEventListener("click", () => {
@@ -56,7 +56,7 @@ window.addEventListener("scroll", () => {
         section.classList.remove("your-active-class");
       });
       activeSection.classList.add("your-active-class");
-      console.log(activeSection);
+      //  console.log(activeSection);
 
       // Set sections as active
 
@@ -66,7 +66,7 @@ window.addEventListener("scroll", () => {
         if (link.textContent == activeSection.getAttribute("data-nav")) {
           link.classList.add("activeLink");
 
-          console.log(link);
+          // console.log(link);
         } else {
           link.classList.remove("activeLink");
         }
