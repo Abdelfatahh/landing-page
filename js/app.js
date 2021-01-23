@@ -39,6 +39,22 @@ let fragment = document.createDocumentFragment();
  */
 
 // build the nav
+sections.forEach((section) => {
+  let text = section.getAttribute("data-nav");
+  console.log(text);
+  let navEl_li = document.createElement("li");
+  let navEl_li_a = document.createElement("a");
+  navEl_li_a.setAttribute("class", "menu__link");
+  navEl_li_a.textContent = text;
+  navEl_li.appendChild(navEl_li_a);
+  fragment.appendChild(navEl_li);
+  console.log(fragment);
+  navEl_li_a.addEventListener("click", () => {
+    section.scrollIntoView();
+  });
+});
+
+navList.appendChild(fragment);
 
 // Add class 'active' to section when near top of viewport
 
