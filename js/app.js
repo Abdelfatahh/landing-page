@@ -26,18 +26,6 @@ console.log(navList);
 
 let fragment = document.createDocumentFragment();
 
-/**
- * End Global Variables
- * Start Helper Functions
- *
- */
-
-/**
- * End Helper Functions
- * Begin Main Functions
- *
- */
-
 // build the nav
 sections.forEach((section) => {
   let text = section.getAttribute("data-nav");
@@ -59,7 +47,7 @@ sections.forEach((section) => {
 navList.appendChild(fragment);
 
 // Add class 'active' to section when near top of viewport
-
+// Scroll to anchor ID using scrollTO event
 window.addEventListener("scroll", () => {
   sections.forEach((activeSection) => {
     let rect = activeSection.getBoundingClientRect();
@@ -69,6 +57,8 @@ window.addEventListener("scroll", () => {
       });
       activeSection.classList.add("your-active-class");
       console.log(activeSection);
+
+      // Set sections as active
 
       // for each link ->
       let links = document.querySelectorAll("a");
@@ -85,14 +75,6 @@ window.addEventListener("scroll", () => {
   });
 });
 
-// Scroll to anchor ID using scrollTO event
-
 /**
  * End Main Functions
- * Begin Events
- *
  */
-
-// Build menu
-
-// Set sections as active
