@@ -50,7 +50,7 @@ sections.forEach((section) => {
   fragment.appendChild(navEl_li);
   console.log(fragment);
   navEl_li_a.addEventListener("click", () => {
-    section.scrollIntoView();
+    section.scrollIntoView({ behavior: "smooth" });
   });
 });
 
