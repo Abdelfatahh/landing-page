@@ -90,6 +90,10 @@ section {
   cursor: pointer;
 }
 
+.activeLink {
+  background-color: #ffc600;
+}
+
 /* Header Styles */
 .page__header {
   background: #fff;

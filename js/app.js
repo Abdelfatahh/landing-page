@@ -49,6 +49,8 @@ sections.forEach((section) => {
   navEl_li.appendChild(navEl_li_a);
   fragment.appendChild(navEl_li);
   console.log(fragment);
+
+  // Scroll to section on link click
   navEl_li_a.addEventListener("click", () => {
     section.scrollIntoView({ behavior: "smooth" });
   });
@@ -57,6 +59,31 @@ sections.forEach((section) => {
 navList.appendChild(fragment);
 
 // Add class 'active' to section when near top of viewport
+
+window.addEventListener("scroll", () => {
+  sections.forEach((activeSection) => {
+    let rect = activeSection.getBoundingClientRect();
+    if (rect.top > 0 && rect.top < 200) {
+      sections.forEach((section) => {
+        section.classList.remove("your-active-class");
+      });
+      activeSection.classList.add("your-active-class");
+      console.log(activeSection);
+
+      // for each link ->
+      let links = document.querySelectorAll("a");
+      links.forEach((link) => {
+        if (link.textContent == activeSection.getAttribute("data-nav")) {
+          link.classList.add("activeLink");
+
+          console.log(link);
+        } else {
+          link.classList.remove("activeLink");
+        }
+      });
+    }
+  });
+});
 
 // Scroll to anchor ID using scrollTO event
 
@@ -67,7 +94,5 @@ navList.appendChild(fragment);
  */
 
 // Build menu
-
-// Scroll to section on link click
 
 // Set sections as active
